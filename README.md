@@ -8,16 +8,18 @@ How to generate a wasm file with go
 
 1. write a xx.fo file 
 2. then run command
-#  GOARCH=wasm GOOS=js go build -o calc.wasm calc.go
-# if there is no wasm_exec.html,js in rootPath 
- you can use this 
-cp $(go env GOROOT)/misc/wasm/wasm_exec.{html,js} .  copy those from go env
+`GOARCH=wasm GOOS=js go build -o calc.wasm calc.go`
 
-finally build a web-server
+if there is no wasm_exec.html,js in rootPath 
+you can use this 
+`cp $(go env GOROOT)/misc/wasm/wasm_exec.{html,js} .`
+copy those from go env
 
-#  //http.go
+build a web-server
+
+http.go
+```
 package main
-
 import (
     "flag"
     "log"
@@ -41,6 +43,8 @@ func main() {
         http.FileServer(http.Dir(*dir)).ServeHTTP(resp, req)
     })))
 }
-#
+```
 
-go run http.go  you will see the results
+`go run http.go ` 
+
+you will see the results
