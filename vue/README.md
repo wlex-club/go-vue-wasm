@@ -1,4 +1,4 @@
-# vue-wasm-go
+# vue-wasm-go (vue-cli 3.x)
 
 ## Project setup
 ```
